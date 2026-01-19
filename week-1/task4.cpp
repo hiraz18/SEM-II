@@ -20,7 +20,7 @@ int main() {
             scanf("%d", &b[i][j]);
     
     printf("\n--- MENU ---\n");
-    printf("1. Addition\n2. Subtraction\n3. Multiplication\n4. Transpose of A\n");
+    printf("1. Addition\n2. Subtraction\n3. Multiplication\n4. Transpose\n");
     printf("Enter your choice: ");
     scanf("%d", &ch);
     
@@ -67,11 +67,25 @@ int main() {
             break;
             
         case 4: // Transpose
-            printf("\nTranspose of Matrix A:\n");
-            for(i=0; i<c1; i++) {
-                for(j=0; j<r1; j++)
-                    printf("%4d ", a[j][i]);
-                printf("\n");
+        	int ab;
+        	printf("1.Transpose of Matrix A: \n2. Transpose of Matrix B: \n");
+    		printf("Enter your choice: ");
+    		scanf("%d", &ab);
+        	switch(ab) {
+        		case 1:
+        			printf("\nTranspose of Matrix A:\n");
+        			for(i=0; i<c1; i++) {
+                		for(j=0; j<r1; j++)
+                    		printf("%4d ", a[j][i]);
+                		printf("\n");
+            		}
+            	case 2:
+            		printf("\nTranspose of Matrix B:\n");
+            		for(i=0; i<c2; i++) {
+               			for(j=0; j<r2; j++)
+                    		printf("%4d ", b[j][i]);
+                		printf("\n");
+                	}
             }
             break;
     }
