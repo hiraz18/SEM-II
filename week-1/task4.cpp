@@ -79,6 +79,7 @@ int main() {
                     		printf("%4d ", a[j][i]);
                 		printf("\n");
             		}
+            		break;
             	case 2:
             		printf("\nTranspose of Matrix B:\n");
             		for(i=0; i<c2; i++) {
@@ -86,6 +87,7 @@ int main() {
                     		printf("%4d ", b[j][i]);
                 		printf("\n");
                 	}
+                	break;
             }
             break;
     }
