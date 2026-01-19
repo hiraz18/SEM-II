@@ -3,7 +3,7 @@
 
 int main() {
     char str[100], word[20];
-    int i, j, k, len, word_len;
+    int i = 0, j, len, word_len;
     
     printf("Enter the main string: ");
     gets(str);
@@ -15,18 +15,18 @@ int main() {
     word_len = strlen(word);
     
     // Remove all occurrences of word
-    for (i = 0; i <= len - word_len; i++) {
+    while (i <= len - word_len) {
         if (strncmp(&str[i], word, word_len) == 0) {
-            // Found the word, shift characters left
-            for (j = i; j <= len - word_len; j++) {
-                for (k = j; k < len - word_len; k++) {
-                    str[k] = str[k + word_len];
-                }
+            // Shift characters LEFT by word length
+            for (j = i; j < len - word_len; j++) {
+                str[j] = str[j + word_len];
             }
             len -= word_len;
-            i--;  // Check same position again
+        } else {
+            i++;
         }
     }
+    str[len] = '\0';
     
     printf("String after removing word: %s\n", str);
     return 0;
