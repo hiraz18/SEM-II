@@ -31,9 +31,7 @@ void selectionSortInt(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int min_idx = i;
         for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[min_idx]) {
-                min_idx = j;
-            }
+            if (arr[j] < arr[min_idx]) min_idx = j;
         }
         if (min_idx != i) {
             int temp = arr[i];
@@ -43,7 +41,7 @@ void selectionSortInt(int arr[], int n) {
     }
 }
 
-// =================== d) Quick sort for characters =====================
+// =================== d) Quick sort for characters ====================
 int partitionChar(char arr[], int low, int high) {
     char pivot = arr[high];
     int i = low - 1;
@@ -69,65 +67,82 @@ void quickSortChar(char arr[], int low, int high) {
     }
 }
 
-// =================== Helper print functions ============================
-void printIntArray(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
+// =================== Print functions ====================
+void printInt(int arr[], int n) {
+    for (int i = 0; i < n; i++) printf("%d ", arr[i]);
     printf("\n");
 }
 
-void printCharArray(char arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%c ", arr[i]);
-    }
+void printChar(char arr[], int n) {
+    for (int i = 0; i < n; i++) printf("'%c' ", arr[i]);
     printf("\n");
 }
 
-// =================== Main driver code ================================
+// =================== Get user input ====================
+void getIntInput(int arr[], int n) {
+    printf("Enter %d integers: ", n);
+    for (int i = 0; i < n; i++) scanf("%d", &arr[i]);
+}
+
+void getCharInput(char arr[], int n) {
+    printf("Enter %d characters: ", n);
+    for (int i = 0; i < n; i++) scanf(" %c", &arr[i]);  // space before %c skips whitespace
+}
+
+// =================== Main menu ====================
 int main() {
-    // Example for Insertion sort (integers)
-    int intArr1[] = {12, 11, 13, 5, 6};
-    int n1 = 5;
-    printf("Insertion sort on integers:\n");
-    printf("Original: ");
-    printIntArray(intArr1, n1);
-    insertionSortInt(intArr1, n1);
-    printf("Sorted  : ");
-    printIntArray(intArr1, n1);
-    printf("\n");
+    int choice, n;
+    int intArr[100];
+    char charArr[100];
 
-    // Example for Bubble sort (characters)
-    char charArr1[] = {'d', 'a', 'c', 'b', 'e'};
-    int n2 = 5;
-    printf("Bubble sort on characters:\n");
-    printf("Original: ");
-    printCharArray(charArr1, n2);
-    bubbleSortChar(charArr1, n2);
-    printf("Sorted  : ");
-    printCharArray(charArr1, n2);
-    printf("\n");
+    while (1) {
+        printf("\n=== Sorting Algorithms ===\n");
+        printf("1. Insertion Sort (Integers)\n");
+        printf("2. Bubble Sort (Characters)\n");
+        printf("3. Selection Sort (Integers)\n");
+        printf("4. Quick Sort (Characters)\n");
+        printf("5. Exit\n");
+        printf("Choice: ");
+        scanf("%d", &choice);
 
-    // Example for Selection sort (integers)
-    int intArr2[] = {64, 25, 12, 22, 11};
-    int n3 = 5;
-    printf("Selection sort on integers:\n");
-    printf("Original: ");
-    printIntArray(intArr2, n3);
-    selectionSortInt(intArr2, n3);
-    printf("Sorted  : ");
-    printIntArray(intArr2, n3);
-    printf("\n");
+        if (choice == 5) break;
 
-    // Example for Quick sort (characters)
-    char charArr2[] = {'d', 'a', 'c', 'b', 'e'};
-    int n4 = 5;
-    printf("Quick sort on characters:\n");
-    printf("Original: ");
-    printCharArray(charArr2, n4);
-    quickSortChar(charArr2, 0, n4 - 1);
-    printf("Sorted  : ");
-    printCharArray(charArr2, n4);
+        printf("Enter array size: ");
+        scanf("%d", &n);
 
+        switch (choice) {
+            case 1:  // Insertion integers
+                getIntInput(intArr, n);
+                printf("Original: "); printInt(intArr, n);
+                insertionSortInt(intArr, n);
+                printf("Sorted:   "); printInt(intArr, n);
+                break;
+
+            case 2:  // Bubble characters
+                getCharInput(charArr, n);
+                printf("Original: "); printChar(charArr, n);
+                bubbleSortChar(charArr, n);
+                printf("Sorted:   "); printChar(charArr, n);
+                break;
+
+            case 3:  // Selection integers
+                getIntInput(intArr, n);
+                printf("Original: "); printInt(intArr, n);
+                selectionSortInt(intArr, n);
+                printf("Sorted:   "); printInt(intArr, n);
+                break;
+
+            case 4:  // Quick characters
+                getCharInput(charArr, n);
+                printf("Original: "); printChar(charArr, n);
+                quickSortChar(charArr, 0, n - 1);
+                printf("Sorted:   "); printChar(charArr, n);
+                break;
+
+            default:
+                printf("Invalid choice\n");
+        }
+        printf("\n");
+    }
     return 0;
 }
