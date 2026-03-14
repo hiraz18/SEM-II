@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// =================== a) Insertion sort for integers ===================
+//a) Insertion sort for integers
 void insertionSortInt(int arr[], int n) {
     for (int i = 1; i < n; i++) {
         int key = arr[i];
@@ -13,7 +13,7 @@ void insertionSortInt(int arr[], int n) {
     }
 }
 
-// =================== b) Bubble sort for characters ====================
+//b) Bubble sort for characters 
 void bubbleSortChar(char arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - 1 - i; j++) {
@@ -26,7 +26,7 @@ void bubbleSortChar(char arr[], int n) {
     }
 }
 
-// =================== c) Selection sort for integers ==================
+// c) Selection sort for integers
 void selectionSortInt(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int min_idx = i;
@@ -41,7 +41,7 @@ void selectionSortInt(int arr[], int n) {
     }
 }
 
-// =================== d) Quick sort for characters ====================
+//d) Quick sort for characters 
 int partitionChar(char arr[], int low, int high) {
     char pivot = arr[high];
     int i = low - 1;
@@ -67,7 +67,7 @@ void quickSortChar(char arr[], int low, int high) {
     }
 }
 
-// =================== Print functions ====================
+//Print functions
 void printInt(int arr[], int n) {
     for (int i = 0; i < n; i++) printf("%d ", arr[i]);
     printf("\n");
@@ -78,7 +78,7 @@ void printChar(char arr[], int n) {
     printf("\n");
 }
 
-// =================== Get user input ====================
+//Get user input 
 void getIntInput(int arr[], int n) {
     printf("Enter %d integers: ", n);
     for (int i = 0; i < n; i++) scanf("%d", &arr[i]);
@@ -89,7 +89,7 @@ void getCharInput(char arr[], int n) {
     for (int i = 0; i < n; i++) scanf(" %c", &arr[i]);  // space before %c skips whitespace
 }
 
-// =================== Main menu ====================
+//Main menu
 int main() {
     int choice, n;
     int intArr[100];
